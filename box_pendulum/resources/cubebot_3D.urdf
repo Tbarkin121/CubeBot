@@ -1,0 +1,478 @@
+<?xml version="1.0"?>
+<robot name="cubebot">
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0.2 0.2 0.8 0.8"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0.2 0.2 0.8"/>
+    </material>
+    <material name="green">
+        <color rgba="0.2 0.8 0.2 0.8"/>
+    </material>
+    <material name="purple">
+        <color rgba="0.8 0.1 0.8 0.8"/>
+    </material>
+
+
+    <!-- Cube of Cube -->
+   <link name="cube">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1"/>
+            <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner1">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner2">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner3">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner4">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner5">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner6">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner7">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Corner -->
+    <link name="corner8">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="=1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Inertial Wheel -->
+    <link name="wheel10">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+        <link name="wheel11">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Inertial Wheel -->
+    <link name="wheel20">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+    <!-- Inertial Wheel -->
+    <link name="wheel21">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <!-- Inertial Wheel -->
+    <link name="wheel30">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+    <!-- Inertial Wheel -->
+    <link name="wheel31">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="cube corner1" type="fixed">
+        <origin xyz="0.5 0.5 -0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner1"/>
+    </joint>
+    <joint name="cube corner2" type="fixed">
+        <origin xyz="-0.5 0.5 -0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner2"/>
+    </joint>
+    <joint name="cube corner3" type="fixed">
+        <origin xyz="0.5 -0.5 -0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner3"/>
+    </joint>
+    <joint name="cube corner4" type="fixed">
+        <origin xyz="-0.5 -0.5 -0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner4"/>
+    </joint>
+
+    <joint name="cube corner5" type="fixed">
+        <origin xyz="0.5 0.5 0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner5"/>
+    </joint>
+    <joint name="cube corner6" type="fixed">
+        <origin xyz="-0.5 0.5 0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner6"/>
+    </joint>
+    <joint name="cube corner7" type="fixed">
+        <origin xyz="0.5 -0.5 0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner7"/>
+    </joint>
+    <joint name="cube corner8" type="fixed">
+        <origin xyz="-0.5 -0.5 0.5" rpy="0 0 0" />
+        <parent link="cube"/>
+        <child link="corner8"/>
+    </joint>
+
+    <joint name="cube to wheel10" type="continuous">
+        <origin xyz="0.4 0 0" rpy="0 1.57075 0" />
+        <parent link="cube"/>
+        <child link="wheel10"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+    <joint name="cube to wheel11" type="continuous">
+        <origin xyz="-0.4 0 0" rpy="0 1.57075 0" />
+        <parent link="cube"/>
+        <child link="wheel11"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="cube to wheel20" type="continuous">
+        <origin xyz="0 0.4 0" rpy="1.57075 0 0" />
+        <parent link="cube"/>
+        <child link="wheel20"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+    <joint name="cube to wheel21" type="continuous">
+        <origin xyz="0 -0.4 0" rpy="1.57075 0 0" />
+        <parent link="cube"/>
+        <child link="wheel21"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+
+    <joint name="cube to wheel30" type="continuous">
+        <origin xyz="0.0 0 0.4" rpy="0 0 1.57075" />
+        <parent link="cube"/>
+        <child link="wheel30"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+    <joint name="cube to wheel31" type="continuous">
+        <origin xyz="0.0 0 -0.4" rpy="0 0 1.57075" />
+        <parent link="cube"/>
+        <child link="wheel31"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+
+</robot>

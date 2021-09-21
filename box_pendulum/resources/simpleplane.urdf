@@ -1,0 +1,458 @@
+<?xml version="1.0"?> 
+<robot name="simpleplane">
+    <!-- Colors --> 
+    <material name="Black"> 
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="Grey"> 
+        <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+
+    <!-- Used for fixing robot' -->
+    <link name="world"/>
+
+    <!-- Plane -->
+    <link name="base_link1">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link2">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link3">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link4">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link>
+
+    <link name="base_link5">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link6">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link7">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link>
+    <link name="base_link8">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+
+
+    <link name="base_link9">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link10">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link11">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link12">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link>
+
+    <link name="base_link13">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link14">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+    <link name="base_link15">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="16"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link>
+    <link name="base_link16">
+        <visual> 
+            <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+        <collision> 
+             <geometry> 
+                <box size="2 2 0.01"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </geometry>
+        </collision> 
+        <inertial> 
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial> 
+        <contact> 
+            <lateral_friction value="1"/>
+        </contact>
+    </link> 
+
+    <joint name="l0" type="fixed">
+        <origin xyz="-3.5 -3.5 0" rpy="0 0 0" />
+        <parent link="world"/>
+        <child link="base_link1"/>
+    </joint>
+
+    <joint name="l1" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link1"/>
+        <child link="base_link2"/>
+    </joint>
+    <joint name="l2" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link2"/>
+        <child link="base_link3"/>
+    </joint>
+    <joint name="l3" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link3"/>
+        <child link="base_link4"/>
+    </joint>
+
+    <joint name="l4" type="fixed">
+        <origin xyz="0 2 0" rpy="0 0 0" />
+        <parent link="base_link1"/>
+        <child link="base_link5"/>
+    </joint>
+    <joint name="l5" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link5"/>
+        <child link="base_link6"/>
+    </joint>
+    <joint name="l6" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link6"/>
+        <child link="base_link7"/>
+    </joint>
+    <joint name="l7" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link7"/>
+        <child link="base_link8"/>
+    </joint>
+
+    <joint name="l8" type="fixed">
+        <origin xyz="0 4 0" rpy="0 0 0" />
+        <parent link="base_link1"/>
+        <child link="base_link9"/>
+    </joint>
+    <joint name="l9" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link9"/>
+        <child link="base_link10"/>
+    </joint>
+    <joint name="l10" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link10"/>
+        <child link="base_link11"/>
+    </joint>
+    <joint name="l11" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link11"/>
+        <child link="base_link12"/>
+    </joint>
+
+    <joint name="l13" type="fixed">
+        <origin xyz="0 6 0" rpy="0 0 0" />
+        <parent link="base_link1"/>
+        <child link="base_link13"/>
+    </joint>
+    <joint name="l14" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link13"/>
+        <child link="base_link14"/>
+    </joint>
+    <joint name="l15" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link14"/>
+        <child link="base_link15"/>
+    </joint>
+    <joint name="l16" type="fixed">
+        <origin xyz="2 0 0" rpy="0 0 0" />
+        <parent link="base_link15"/>
+        <child link="base_link16"/>
+    </joint>
+
+
+</robot>

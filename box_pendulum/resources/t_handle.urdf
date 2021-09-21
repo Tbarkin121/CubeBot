@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="cubebot">
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0.2 0.2 0.8 0.8"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0.2 0.2 0.8"/>
+    </material>
+    <material name="green">
+        <color rgba="0.2 0.8 0.2 0.8"/>
+    </material>
+
+
+    <!-- Pole -->
+    <link name="pole1">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="1.0" radius="0.05"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="1.0" radius="0.05"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="0.25"/>
+            <inertia ixx="0.00" ixy="0.00" ixz="0.00" iyy="0.00" iyz="0.00" izz="=0.00"/>
+        </inertial>
+    </link>
+
+    <!-- Pole -->
+    <link name="pole2">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="2.0" radius="0.05"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="2.0" radius="0.05"/>
+            </geometry>
+            <!-- <contact_coefficient mu="0"  resitution="0"  k_p="0"  k_d="0" /> -->
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <mass value="0.75"/>
+            <inertia ixx="0.00" ixy="0.00" ixz="0.00" iyy="0.00" iyz="0.00" izz="=0.00"/>
+        </inertial>
+    </link>
+
+    <joint name="T Junction" type="fixed">
+        <origin xyz="0.0 0.0 0.5" rpy="0 1.57079 0" />
+        <parent link="pole1"/>
+        <child link="pole2"/>
+
+        
+    </joint>
+
+</robot>
