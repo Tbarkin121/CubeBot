@@ -16,6 +16,7 @@ from box_pendulum.envs.cube3D_stand_env import Cube3DStandEnv
 import matplotlib.pyplot as plt
 from time import sleep
 
+
 #%%
 env = Cube3DStandEnv()
 
