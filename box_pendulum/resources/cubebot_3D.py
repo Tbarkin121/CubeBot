@@ -7,11 +7,18 @@ class CubeBot3D:
     def __init__(self, client):
         self.client = client
         f_name = os.path.join(os.path.dirname(__file__), 'cubebot_3D.urdf')
+        urdfFlags = p.URDF_USE_INERTIA_FROM_FILE
+        start_rotx = np.random.uniform(low=0.0, high=2*np.pi)
+        start_roty = np.random.uniform(low=0.0, high=2*np.pi)
+        start_rotz = np.random.uniform(low=0.0, high=2*np.pi)
+        start_quaternion = p.getQuaternionFromEuler([start_rotx,start_roty,start_rotz])
         self.robot = p.loadURDF(fileName=f_name,
-                              basePosition=[0, 0, 0.8],
-                              baseOrientation=[0, 0, 0, 1],
+                              basePosition=[0, 0, 0.5],
+                              baseOrientation=start_quaternion,
+                              flags=urdfFlags,
                               physicsClientId=client)
         
+        self.bodyShape = p.getCollisionShapeData(self.robot, -1, self.client)
         # Joint indices as found by p.getJointInfo()
         self.corner_indices = [0, 1, 2, 3, 4, 5, 6, 7]
         self.wheel_indices = [8, 9, 10, 11, 12, 13]
@@ -22,25 +29,24 @@ class CubeBot3D:
 
         p.changeVisualShape(self.robot, self.corner_indices[0], rgbaColor=[0.0, 1.0, 0.0, 1.0])
         p.changeDynamics(self.robot, -1, linearDamping=0, angularDamping=0, maxJointVelocity=1000)
+        for corner in self.corner_indices:
+            p.changeDynamics(self.robot, corner, linearDamping=0, angularDamping=0, lateralFriction = 1.0)
         for wheel in self.wheel_indices:
             # p.setJointMotorControl2(robot, i, p.POSITION_CONTROL, force=0, maxVelocity=1000)
             p.setJointMotorControl2(self.robot, wheel, p.VELOCITY_CONTROL, force=0)
             p.enableJointForceTorqueSensor(self.robot, wheel, enableSensor=1)
             # p.changeDynamics(robot, wheel, mass=1.0, lateralFriction=0.0, spinningFriction=0.0, rollingFriction=0.0, jointDamping=0.0, angularDamping=0)
-            p.changeDynamics(self.robot, wheel, mass=0.1, linearDamping=0, angularDamping=0, maxJointVelocity=1000)
-
-            DynamicsInfo = p.getDynamicsInfo(self.robot, wheel)
-            p.changeDynamics(self.robot, wheel, localInertiaDiagonal=[DynamicsInfo[2][0]*2, DynamicsInfo[2][1]*2, DynamicsInfo[2][2]*2])
+            p.changeDynamics(self.robot, wheel, linearDamping=0, angularDamping=0, maxJointVelocity=1000)
             
         # wheel speed
         self.wheel_speed = [0.0, 0.0, 0.0]
         # Drag constants
         self.c_rolling = 0.0
         self.c_drag = 0.0
-        # Throttle constant increases "speed" of the car
-        self.max_torque = 20
+        # Throttle constant increases "speed" of the wheels
         self.c_throttle = 300
-        self.max_wheel_vel = 100
+        self.max_torque = 1        
+        self.max_wheel_vel = 150
 
     def get_ids(self):
         return self.robot, self.client
@@ -88,9 +94,9 @@ class CubeBot3D:
 
     def get_observation(self):
         # Get Base State Information
-        BasePosition = p.getBasePositionAndOrientation(self.robot,
+        BasePosition, baseOrientation = p.getBasePositionAndOrientation(self.robot,
                                                        physicsClientId=self.client)
-        BaseVelocity = p.getBaseVelocity(self.robot,
+        BaseLinVel, BaseAngVel = p.getBaseVelocity(self.robot,
                                          physicsClientId=self.client)
 
         # Get the joint state for the flywheel. There are 6, but only 3 are unique
@@ -109,8 +115,8 @@ class CubeBot3D:
         WheelVel3 = WheelState3[1]/self.max_wheel_vel
 
         # Only concerned with orientation for now
-        observation = (BasePosition[1][0], BasePosition[1][1], BasePosition[1][2], BasePosition[1][3], 
-                       BaseVelocity[1][0], BaseVelocity[1][1], BaseVelocity[1][2],
+        observation = (baseOrientation[0], baseOrientation[1], baseOrientation[2], baseOrientation[3], 
+                       BaseAngVel[0], BaseAngVel[1], BaseAngVel[2],
                        WheelVel1, WheelVel2, WheelVel3)
         return observation
 

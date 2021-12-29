@@ -28,8 +28,8 @@ class Cube3DStandEnv(gym.Env):
 
         self.np_random, _ = gym.utils.seeding.np_random()
         
-        # self.client = p.connect(p.GUI)
-        self.client = p.connect(p.DIRECT)
+        self.client = p.connect(p.GUI)
+        # self.client = p.connect(p.DIRECT)
         
         self.user_angle = None
         self.user_throttle = None
@@ -43,7 +43,6 @@ class Cube3DStandEnv(gym.Env):
         self.rendered_img = None
         self.render_rot_matrix = None
         self.reset()
-
         self.max_step_count = 2500
         self.current_step_count = 0
         
@@ -58,7 +57,8 @@ class Cube3DStandEnv(gym.Env):
         # This structure should incentivise getting the corner as high as possible
         # I expect the bot to learn how to ballance on an edge, and maybe later a corner. 
         
-        reward = self.robot.get_corner_height()
+        # Scaling with the height of the robot, (Because I changed from a 1m edge to a 0.3m edge recently)
+        reward = self.robot.get_corner_height()/self.robot.bodyShape[0][3][0]
         # print(reward)
         ob = np.array(robot_ob, dtype=np.float32)
 
@@ -75,7 +75,7 @@ class Cube3DStandEnv(gym.Env):
 
     def reset(self):
         p.resetSimulation(self.client)
-        p.setGravity(0, 0, -10)
+        p.setGravity(0, 0, -9.81)
         # Reload the Plane
         Plane(self.client)
         # Reload the Robot
@@ -120,7 +120,7 @@ class Cube3DStandEnv(gym.Env):
         rot_mat = np.array(p.getMatrixFromQuaternion(ori)).reshape(3, 3)
         camera_vec = np.matmul(rot_mat, [1, 0, 0])
         # camera_offset = np.matmul(rot_mat, [2, 0, 1])
-        camera_offset = np.array([2, 0, 1.5])
+        camera_offset = np.array([0.1, 0, 1])
         # up_vec = np.matmul(rot_mat, np.array([0, 0, 1]))
         up_vec = [0, 0, 1]
         # view_matrix = p.computeViewMatrix(pos+camera_offset, pos, up_vec)

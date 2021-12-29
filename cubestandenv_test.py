@@ -15,16 +15,17 @@ from box_pendulum.envs.cube_stand_env import CubeStandEnv
 from box_pendulum.envs.cube3D_stand_env import Cube3DStandEnv
 import matplotlib.pyplot as plt
 from time import sleep
-
+werwer
 #%%
 env = Cube3DStandEnv()
 
 #%%
 
 obs = env.reset()
+print('observ = {}'.format(obs))
 #%%
-for _ in range(1000):
-    obs, reward, done, info = env.step([1.0, 1.0, 1.0])
+for _ in range(50):
+    obs, reward, done, info = env.step([0.0, 0.0, 0.0])
     # print('action = {}'.format(action))
     print('observ = {}'.format(obs))
     print('reward = {}'.format(reward))

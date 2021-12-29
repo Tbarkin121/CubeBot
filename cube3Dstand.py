@@ -17,16 +17,17 @@ from typing import Callable
 from stable_baselines3.common.callbacks import CallbackList, CheckpointCallback, EvalCallback
 
 def main():
-    tb_name = 'Cube3D_ModifiedThrottle'
+    tb_name = 'Cube3D_RealisticSize_RandOriStart_128x128_SAC'
     env_stats_path = 'model_save/stats_' + tb_name + '.pkl'
     best_model_path = 'model_save/best/' + tb_name
     checkpoint_path = 'model_save/ckpt/' + tb_name
     start_fresh = False
     do_training = False
     do_render = True
-    num_cpu = 16
+    num_cpu = 1
     eval_freq = 100000/num_cpu #The num_cpu seemed to factor in. 1000 = 16000 for 16 cpu
-    
+    total_timesteps = 1000000
+    render_steps = 1500
 
     # nn = torch.nn.Sequential(torch.nn.Linear(8, 64), torch.nn.Tanh(),
     #                          torch.nn.Linear(64, 2))
@@ -36,15 +37,21 @@ def main():
     #             max_episode_length=250, verbose=True)
     # agent.save_model("agent.pth")
 
-    policy_kwargs = dict(activation_fn=th.nn.LeakyReLU, net_arch=[dict(pi=[128, 128, 128], vf=[128, 128, 128])])
-
+    
     env = SubprocVecEnv([make_env('Cube3DStand-v0', i, log_dir='log/') for i in range(num_cpu)])
     eval_env = SubprocVecEnv([make_env('Cube3DStand-v0', i, log_dir='log/') for i in range(1)])
 
     if(start_fresh):
+        # policy_kwargs = dict(activation_fn=th.nn.LeakyReLU, net_arch=[dict(pi=[128, 128], vf=[128, 128])])
+        policy_kwargs = dict(activation_fn=th.nn.LeakyReLU, net_arch=[128, 128])
         # env = VecNormalize(env, norm_obs=True, norm_reward=True, clip_obs=10.)
         obs = env.reset()
-        model = PPO('MlpPolicy', 
+        # model = PPO('MlpPolicy', 
+        #             env, 
+        #             policy_kwargs = policy_kwargs, 
+        #             verbose=1, 
+        #             tensorboard_log='log/')
+        model = SAC('MlpPolicy', 
                     env, 
                     policy_kwargs = policy_kwargs, 
                     verbose=1, 
@@ -52,7 +59,9 @@ def main():
     else:
         # env = VecNormalize.load(env_stats_path, env)
         obs = env.reset()
-        model = PPO.load(best_model_path+'/best_model.zip')
+        # model = PPO.load(best_model_path+'/best_model.zip')
+        model = SAC.load(best_model_path+'/best_model.zip')
+        # model = PPO.load(checkpoint_path+'/rl_model_30000000_steps.zip')
         model.set_env(env)       
     
     if(do_training):
@@ -66,7 +75,7 @@ def main():
                                     deterministic=True, 
                                     render=False)
         callbacks = CallbackList([checkpoint_callback, eval_callback])
-        model.learn(total_timesteps=5000000,
+        model.learn(total_timesteps=total_timesteps,
                     reset_num_timesteps=False, #Getting some issues with this line... not sure why
                     tb_log_name=tb_name,
                     callback=callbacks)
@@ -78,7 +87,7 @@ def main():
         # eval_env = VecNormalize.load(env_stats_path, eval_env)
         # eval_env = gym.make('SimpleDriving-v0')
         obs = render_env.reset()
-        for _ in range(2000):
+        for _ in range(render_steps):
             action = model.predict(obs)[0]
             obs, reward, done, _ = render_env.step(action)
             render_env.render()
@@ -90,7 +99,7 @@ def main():
                 time.sleep(1/30)
 
 
-def make_env(env_id: str, rank: int, seed: int = 4, log_dir=None) -> Callable:
+def make_env(env_id: str, rank: int, seed: int = 2, log_dir=None) -> Callable:
     '''
     Utility function for multiprocessed env.
     
